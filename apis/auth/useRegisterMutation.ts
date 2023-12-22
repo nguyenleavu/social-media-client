@@ -15,13 +15,8 @@ export const useRegisterMutation = (
   useMutation({
     mutationFn: (data: RegisterForm) => authService.register(data),
     onSuccess: ({ data }) => {
-      if (data.data) {
-        const { access_token, refresh_token } = data.data;
-        localStorage.setItem("access_token", access_token);
-        localStorage.setItem("refresh_token", refresh_token);
-      }
-      toast.success(data.message);
       router.push("/");
+      toast.success(data.message);
     },
     onError: (error) => {
       if (isAxiosUnprocessableEntityError<ResponseApi<RegisterForm>>(error)) {

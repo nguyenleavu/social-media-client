@@ -35,7 +35,7 @@ const LoginForm = () => {
         placeholder="Password"
         fullWidth
         name="password"
-        // type="password"
+        type="password"
         register={register}
         error={errors.password?.message}
       />

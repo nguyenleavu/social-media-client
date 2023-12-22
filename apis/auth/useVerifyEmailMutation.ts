@@ -5,5 +5,4 @@ export const useVerifyEmailMutation = () =>
   useMutation({
     mutationFn: (data: { email_verify_token: string }) =>
       authService.verifyEmail(data),
-    onSuccess: () => {},
   });

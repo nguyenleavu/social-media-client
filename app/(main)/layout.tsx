@@ -1,18 +1,19 @@
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Create Next App",
-};
+import Navbar from "@/components/Navbar";
 
 export default function MainLayout({
   children,
+  modal,
 }: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   return (
-    <div>
-      <h1>Main Layout</h1>
-      {children}
+    <div className="flex justify-center text-white">
+      <Navbar />
+      <div className="pl-mbNav lg:pl-nav w-full">
+        {children}
+        {modal}
+      </div>
     </div>
   );
 }

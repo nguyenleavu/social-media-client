@@ -6,7 +6,7 @@ interface ButtonProps {
   variant?: "contained" | "outlined" | "transparent";
   className?: string;
   onClick?: () => void;
-  type?: "button" | "submit";
+  type?: "button" | "submit" | "file";
   size?: "fullWidth" | "medium";
   component?: ElementType;
   disable?: boolean;
@@ -40,17 +40,17 @@ const Button = ({
 }: ButtonProps) => {
   return (
     <Tag
-      to={href}
+      href={href}
       onClick={onClick}
       type={type}
-      className={`${variantOptions[variant]} ${className} ${sizes[size]} ${
+      className={`${variantOptions[variant]} ${sizes[size]} ${
         disable && "opacity-70 cursor-not-allowed"
-      }`}
+      } ${className}`}
       disable={disable.toString()}
     >
       {loading ? (
         <span>
-          <i className="animate-spin fa-solid fa-circle-notch"></i>
+          <i className="animate-spin fa-solid fa-circle-notch text-white"></i>
         </span>
       ) : (
         children

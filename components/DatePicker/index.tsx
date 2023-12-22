@@ -7,7 +7,7 @@ interface DatePickerProps extends DateTimePickerProps {
 
 const DatePicker = ({ value, onChange, error }: DatePickerProps) => {
   return (
-    <div className="mb-2">
+    <div className="mb-2 bg-white">
       <div className="border border-gray-400 px-2 h-10 flex items-center rounded text-xs">
         <Flatpickr
           options={{

@@ -2,6 +2,7 @@ import { API_ENDPOINTS } from "@/constants/api-endpoints";
 import {
   AuthResponse,
   ForgotPasswordResponse,
+  LogOutResponse,
   ResetPassword,
   ResetPasswordResponse,
   VerifyEmailResponse,
@@ -26,7 +27,15 @@ export const authService = {
       data,
     }),
 
-  refreshToken: async (data: string): Promise<AxiosResponse<AuthResponse>> =>
+  logOut: async (): Promise<AxiosResponse<LogOutResponse>> =>
+    await http.request({
+      method: "POST",
+      url: API_ENDPOINTS.LOG_OUT,
+    }),
+
+  refreshToken: async (data: {
+    refresh_token: string;
+  }): Promise<AxiosResponse<AuthResponse>> =>
     await http.request({
       method: "POST",
       url: API_ENDPOINTS.REFRESH_TOKEN,

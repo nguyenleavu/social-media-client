@@ -1,3 +1,4 @@
+import { useAppDispatch } from "@/redux/hook";
 import { authService } from "@/services/auth.services";
 import { AuthError } from "@/types/auth.types";
 import { ResponseApi } from "@/types/utils.types";
@@ -15,13 +16,8 @@ export const useLoginMutation = (
   useMutation({
     mutationFn: (data: LoginForm) => authService.login(data),
     onSuccess: ({ data }) => {
-      if (data.data) {
-        const { access_token, refresh_token } = data.data;
-        localStorage.setItem("access_token", access_token);
-        localStorage.setItem("refresh_token", refresh_token);
-      }
-      toast.success(data.message);
       router.push("/");
+      toast.success(data.message);
     },
     onError: (error) => {
       if (isAxiosUnprocessableEntityError<ResponseApi<LoginForm>>(error)) {

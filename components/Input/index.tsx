@@ -1,7 +1,8 @@
 import { isEmpty } from "lodash";
+import { InputHTMLAttributes } from "react";
 import { UseFormRegister } from "react-hook-form";
 
-interface InputProps {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   type?: "text" | "password" | "file";
   placeholder: string;
   className?: string;

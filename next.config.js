@@ -1,4 +1,25 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  images: {
+    domains: ["social-media-ap-southeast-1.s3.ap-southeast-1.amazonaws.com"],
+  },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve = {
+        ...config.resolve,
+        fallback: {
+          ...config.resolve.fallback,
+          fs: false,
+        },
+      };
+    }
+    config.module = {
+      ...config.module,
+      exprContextCritical: false,
+    };
 
-module.exports = nextConfig
+    return config;
+  },
+};
+
+module.exports = nextConfig;

@@ -6,8 +6,13 @@ export type AuthResponse = ResponseApi<{
   refresh_token: string;
 }>;
 
-export type VerifyEmailResponse = ResponseApi<{
+export type LogOutResponse = ResponseApi<{
   message: string;
+}>;
+
+export type VerifyEmailResponse = ResponseApi<{
+  access_token: string;
+  refresh_token: string;
 }>;
 
 export type ForgotPasswordResponse = ResponseApi<{
@@ -21,6 +26,8 @@ export type VerifyForgotPasswordResponse = ResponseApi<{
 export type ResetPasswordResponse = ResponseApi<{
   message: string;
 }>;
+
+export type RefreshTokenReponse = ResponseApi<{ access_token: string }>;
 
 interface Error {
   type: string;
