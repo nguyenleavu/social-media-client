@@ -23,15 +23,6 @@ const Media = ({ media, handleLike, handleMuted, muted }: Props) => {
 
   const { isPlay, handleClickVideo } = useScrollToPlayVideo(videoRef);
 
-  const handleSoundVideo = () => {
-    if (!videoRef.current) return;
-    if (videoRef.current.muted) {
-      videoRef.current.muted = false;
-    } else {
-      videoRef.current.muted = true;
-    }
-  };
-
   const handleDoubleClick = () => {
     handleLike();
     setHeart(true);
