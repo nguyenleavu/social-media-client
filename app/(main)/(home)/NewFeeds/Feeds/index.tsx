@@ -7,15 +7,28 @@ import CheckEmail from "@/components/Post/CheckEmail";
 import FollowMore from "@/components/Post/FollowMore";
 import { PostType } from "@/types/post.types";
 import { map } from "lodash";
+import { useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const Feeds = () => {
   const { data, isPending, fetchNextPage, hasNextPage, isError } =
     usePostsInfiniteQuery();
 
+  const [muted, setMuted] = useState<boolean>(true);
+
+  const handleMuted = () => {
+    setMuted((prev) => !prev);
+  };
+
   const contents = map(data?.pages, (posts) =>
     map(posts.data, (post: PostType) => (
-      <Post viewAllComments key={post._id} data={post} />
+      <Post
+        viewAllComments
+        key={post._id}
+        data={post}
+        muted={muted}
+        handleMuted={handleMuted}
+      />
     ))
   );
 

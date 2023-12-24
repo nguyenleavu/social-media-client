@@ -1,9 +1,10 @@
 import { isEmpty, map } from "lodash";
-import Loading from "./Loading";
-import { User } from "@/types/user.types";
-import Avatar from "../Avatar";
 import { SizesAvatar, TypeAvatar } from "@/constants/enum";
+import { User } from "@/types/user.types";
 import Link from "next/link";
+import Avatar from "../Avatar";
+import Loading from "../Loading/SearchLoading";
+import { useRouter } from "next/navigation";
 
 interface SearchResultProps {
   data: User[];
@@ -16,6 +17,12 @@ const SearchResult = ({
   isLoading,
   handleClickUser,
 }: SearchResultProps) => {
+  const router = useRouter();
+
+  const handleClick = (user: User) => () => {
+    router.push(`/${user.username}`);
+    handleClickUser();
+  };
   return (
     <div className="pt-3 h-full overflow-auto">
       {isLoading &&
@@ -30,11 +37,10 @@ const SearchResult = ({
       {!isEmpty(data) && (
         <div className="flex flex-col w-full items-start">
           {map(data, (user) => (
-            <Link
+            <button
               key={user._id}
-              href={`/${user.username}`}
               className="h-[70px] flex items-center px-6 w-full cursor-pointer hover:bg-gray26 transition-all"
-              onClick={handleClickUser}
+              onClick={handleClick(user)}
             >
               <Avatar
                 fullWidth
@@ -44,7 +50,7 @@ const SearchResult = ({
                 src={user.avatar}
                 type={TypeAvatar.Normal}
               />
-            </Link>
+            </button>
           ))}
         </div>
       )}

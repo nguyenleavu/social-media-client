@@ -1,4 +1,5 @@
-import PostContent from "@/components/Navbar/CreatePost/TextEditor";
+"use client";
+
 import Feeds from "./Feeds";
 import Header from "./Header";
 

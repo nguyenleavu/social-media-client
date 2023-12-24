@@ -2,9 +2,9 @@ import useOnClickOutside from "@/hooks/useOutsideClick";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 import SearchResult from "./SearchResult";
 import { isEmpty } from "lodash";
-import { useDebounce } from "@/hooks/useDebounce";
 import { useSearchQuery } from "@/apis/user/useSearchQuery";
 import { User } from "@/types/user.types";
+import useDebounce from "@/hooks/useDebounce";
 
 interface SearchProps {
   onCloseTab: () => void;

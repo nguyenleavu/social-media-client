@@ -4,7 +4,7 @@ import { isEmpty } from "lodash";
 
 const PAGE = 1;
 
-export const useSearchQuery = (limit: number, username: string) =>
+export const useSearchQuery = (limit: number, username: string = "") =>
   useQuery({
     queryKey: ["search", username],
     queryFn: () => {

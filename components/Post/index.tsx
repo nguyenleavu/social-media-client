@@ -2,7 +2,7 @@ import { useLikeMutation } from "@/apis/post/useLikeMutation";
 import { useUnlikeMutation } from "@/apis/post/useUnlikeMutation";
 import { PostType } from "@/types/post.types";
 import { isEmpty } from "lodash";
-import { useEffect, useState } from "react";
+import { MutableRefObject, useEffect, useState } from "react";
 import Action from "./Action";
 import Content from "./Content";
 import HeaderPost from "./HeaderPost";
@@ -14,9 +14,17 @@ interface Props {
   data: PostType;
   fullWidth?: boolean;
   viewAllComments?: boolean;
+  muted: boolean;
+  handleMuted: () => void;
 }
 
-const Post = ({ data, fullWidth = false, viewAllComments = false }: Props) => {
+const Post = ({
+  data,
+  fullWidth = false,
+  viewAllComments = false,
+  handleMuted,
+  muted,
+}: Props) => {
   const [liked, setLiked] = useState<boolean>(false);
 
   const { mutate: likePost } = useLikeMutation();
@@ -55,7 +63,12 @@ const Post = ({ data, fullWidth = false, viewAllComments = false }: Props) => {
         createAt={data.created_at}
         audience={data.audience}
       />
-      <Media media={data.medias[0]} handleLike={handleLike} />
+      <Media
+        media={data.medias[0]}
+        handleLike={handleLike}
+        muted={muted}
+        handleMuted={handleMuted}
+      />
       <Action data={data} liked={liked} onToggleLike={onToggleLike} />
       <Content content={data.content} />
       {viewAllComments && (

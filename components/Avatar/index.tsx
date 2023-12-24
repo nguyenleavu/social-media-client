@@ -47,11 +47,8 @@ const Avatar = ({
             alt={name}
           />
         </Link>
-        <div className="ml-2 flex flex-col justify-center">
-          <Link
-            href={`/${name}`}
-            className="text-sm font-medium block  leading-tight"
-          >
+        <div className="ml-2 flex flex-col justify-center items-start">
+          <Link href={`/${name}`} className="font-medium block  leading-tight">
             {truncate ? truncateName(name) : name}
           </Link>
           {createAt && (
@@ -72,7 +69,7 @@ const Avatar = ({
               )}
             </div>
           )}
-          {subTitle && <p className="text-ten">{subTitle}</p>}
+          {subTitle && <p className="text-xs text-grayA8">{subTitle}</p>}
         </div>
       </div>
     </div>
