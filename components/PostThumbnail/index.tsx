@@ -24,6 +24,7 @@ const PostThumbnail = ({ media, likeCount, commentCount, id }: Props) => {
           alt={media.url}
           height={2000}
           width={2000}
+          priority
         />
       ) : (
         <video

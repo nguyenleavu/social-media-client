@@ -1,19 +1,18 @@
 import Navbar from "@/components/Navbar";
+import { ReactNode } from "react";
 
 export default function MainLayout({
   children,
   modal,
 }: {
-  children: React.ReactNode;
-  modal: React.ReactNode;
+  children: ReactNode;
+  modal: ReactNode;
 }) {
   return (
-    <div className="flex justify-center text-white">
+    <div className="flex justify-center text-white w-full">
       <Navbar />
-      <div className="pl-mbNav lg:pl-nav w-full">
-        {children}
-        {modal}
-      </div>
+      {modal}
+      <div className="pl-mbNav lg:pl-nav w-full">{children}</div>
     </div>
   );
 }

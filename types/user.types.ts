@@ -77,6 +77,7 @@ export type CropVideoResponse = ResponseApi<{
   type: MediaType;
 }>;
 export type ProfileResponse = ResponseApi<Profile>;
+export type GetMeResponse = ResponseApi<User>;
 export type FollowResponse = { message: string };
 export type SuggestedResponse = ResponseApiWithPagination<SuggestedType>;
 export type SearchResponse = ResponseApiWithPagination<User[]>;

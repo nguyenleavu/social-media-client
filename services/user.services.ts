@@ -4,6 +4,7 @@ import {
   CropVideoResponse,
   CroppedAreaPixels,
   FollowResponse,
+  GetMeResponse,
   MediaResponse,
   ProfileResponse,
   SearchResponse,
@@ -60,6 +61,12 @@ export const userServices = {
     await http.request({
       method: "GET",
       url: API_ENDPOINTS.GET_PROFILE + username,
+    }),
+
+  getMe: async (): Promise<AxiosResponse<GetMeResponse>> =>
+    await http.request({
+      method: "GET",
+      url: API_ENDPOINTS.GET_ME,
     }),
 
   follow: async (data: {

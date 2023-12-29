@@ -45,7 +45,7 @@
   background-color: black !important;
   box-shadow: none !important;
   border-radius: 8px !important;
-  border-color: #696969 !important;
+  border-color: #474747 !important;
 }
 .myz2dw1 {
   background-color: #262626 !important;
@@ -54,6 +54,12 @@
 .m6zwb4v {
   background-color: #0094f68e !important;
   color: #f5f5f5 !important;
+}
+
+.infinite-scroll-component__outerdiv {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
 }
 
 .editor {

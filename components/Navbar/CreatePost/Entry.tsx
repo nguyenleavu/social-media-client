@@ -1,7 +1,6 @@
 import { User } from "@/types/user.types";
 import { MentionPluginTheme } from "@draft-js-plugins/mention";
 import Image from "next/image";
-import { Fragment } from "react";
 
 export interface EntryComponentProps {
   className?: string;
@@ -18,8 +17,8 @@ const Entry = (props: EntryComponentProps) => {
 
   return (
     <div {...parentProps} key={id}>
-      <div className="flex items-center px-2 hover:bg-gray26 py-2">
-        <div className={theme?.mentionSuggestionsEntryContainerLeft}>
+      <div className="flex items-center px-2 my-1 hover:bg-gray26 rounded cursor-pointer">
+        <div>
           <Image
             width={2000}
             height={20000}
@@ -29,10 +28,8 @@ const Entry = (props: EntryComponentProps) => {
             alt={mention._id}
           />
         </div>
-
         <div className="flex flex-col justify-center ml-2 ">
           <div className="text-sm font-medium">{mention.username}</div>
-
           <div className="text-xs text-grayA8">{mention.name}</div>
         </div>
       </div>

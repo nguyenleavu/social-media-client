@@ -6,7 +6,7 @@ import {
   useState,
 } from "react";
 
-const THRESHOLD = 0.6;
+const THRESHOLD = 0.8;
 
 const useScrollToPlayVideo = (videoRef: RefObject<HTMLVideoElement>) => {
   const [isPlay, setIsPlay] = useState<boolean>(false);

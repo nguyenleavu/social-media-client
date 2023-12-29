@@ -1,13 +1,13 @@
 import { useLikeMutation } from "@/apis/post/useLikeMutation";
 import { useUnlikeMutation } from "@/apis/post/useUnlikeMutation";
 import { PostType } from "@/types/post.types";
+import classNames from "classnames";
 import { isEmpty } from "lodash";
-import { MutableRefObject, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Action from "./Action";
 import Content from "./Content";
 import HeaderPost from "./HeaderPost";
 import Media from "./Media";
-import classNames from "classnames";
 import ViewAllComments from "./ViewAllComments";
 
 interface Props {
@@ -70,7 +70,7 @@ const Post = ({
         handleMuted={handleMuted}
       />
       <Action data={data} liked={liked} onToggleLike={onToggleLike} />
-      <Content content={data.content} />
+      <Content content={data.content} className="pb-1 text-sm text-left" />
       {viewAllComments && (
         <ViewAllComments commentCount={data.comment_count} id={data._id} />
       )}

@@ -7,6 +7,16 @@ export interface PostConfig {
   limit?: number | string;
 }
 
+export interface PostRequest {
+  type: number;
+  audience: number;
+  content: string;
+  parent_id: string | null;
+  hashtags: string[];
+  mentions: string[];
+  medias: Media[];
+}
+
 export interface MediasConfig extends PostConfig {
   medias_type: MediaType;
 }
@@ -54,7 +64,7 @@ export interface MediasList {
 }
 
 export type PostsResponse = ResponseApiWithPagination<PostType[]>;
-export type MediasResponse = ResponseApiWithPagination<MediasList[]>;
+export type MediasResponse = ResponseApiWithPagination<PostType[]>;
 export type CommentsResponseWithPagination = ResponseApiWithPagination<
   PostType[]
 >;

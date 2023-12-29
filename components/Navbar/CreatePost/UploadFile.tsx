@@ -14,7 +14,7 @@ const UploadFile = ({ handleFileChange }: Props) => {
       >
         Create new post
       </Dialog.Title>
-      <div className="mt-2 p-6 flex items-center justify-center h-[724px] flex-col ]">
+      <div className="mt-2 p-6 flex items-center justify-center h-[724px] flex-col">
         <span className="text-sm text-gray-500">
           <i className="fa-thin fa-photo-film text-6xl text-white"></i>
         </span>

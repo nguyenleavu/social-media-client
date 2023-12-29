@@ -1,19 +1,32 @@
-import ShowMoreText from "react-show-more-text";
+"use client";
 
+import usePlugin from "@/hooks/usePlugin";
+import Editor from "@draft-js-plugins/editor";
+import { EditorState, convertFromRaw } from "draft-js";
+import { useEffect, useState } from "react";
 interface Props {
   content: string;
+  className?: string;
 }
 
-const Content = ({ content }: Props) => {
+const Content = ({ content, className }: Props) => {
+  const [editorState, setEditorState] = useState(EditorState.createEmpty());
+  const { plugins } = usePlugin();
+
+  useEffect(() => {
+    setEditorState(
+      EditorState.createWithContent(convertFromRaw(JSON.parse(content)))
+    );
+  }, [content]);
+
   return (
-    <div className="pb-1 text-sm text-left">
-      <ShowMoreText
-        more={<button className="text-grayA8">more</button>}
-        less=""
-        truncatedEndingComponent={"... "}
-      >
-        {content}
-      </ShowMoreText>
+    <div className={className}>
+      <Editor
+        readOnly
+        plugins={plugins}
+        editorState={editorState}
+        onChange={setEditorState}
+      />
     </div>
   );
 };

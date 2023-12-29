@@ -5,6 +5,7 @@ import {
   MediasResponse,
   PostConfig,
   PostLikeResponse,
+  PostRequest,
   PostResponse,
   PostsResponse,
 } from "@/types/post.types";
@@ -66,5 +67,12 @@ export const postServices = {
       method: "GET",
       url: API_ENDPOINTS.GET_MEDIAS,
       params,
+    }),
+
+  createPost: async (data: PostRequest): Promise<AxiosResponse<PostResponse>> =>
+    await http.request({
+      method: "POST",
+      url: API_ENDPOINTS.CREATE_POST,
+      data,
     }),
 };

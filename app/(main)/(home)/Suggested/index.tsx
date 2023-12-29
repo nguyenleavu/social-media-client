@@ -20,7 +20,7 @@ const Suggested = () => {
       <UserBox
         name="nguyenleavu"
         subTitle="Followed by justinbieber"
-        src="https://social-media-ap-southeast-1.s3.ap-southeast-1.amazonaws.com/images/1e2f62b656b5d7218284f9603.jpg"
+        src="https://social-media-ap-southeast-1.s3.ap-southeast-1.amazonaws.com/images/24b979af04028de57252c1703.jpg"
       />
       <div className="mt-6 mb-2">
         <SuggestTitle />

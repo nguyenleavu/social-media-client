@@ -33,11 +33,11 @@ const Information = ({ params }: { params: { username: string } }) => {
   };
 
   useEffect(() => {
-    if (!isEmpty(data?.data.data)) {
-      setFollowing(data?.data.data.isFollowing);
-      dispatch(setProfile(data?.data.data));
+    if (!isEmpty(user)) {
+      setFollowing(user.isFollowing);
+      dispatch(setProfile(user));
     }
-  }, [data, dispatch]);
+  }, [user, dispatch]);
 
   return isLoading ? (
     <ProfileLoading />

@@ -37,7 +37,7 @@ const PostModal = ({ id }: Props) => {
       handleOnOpenChangeModal={handleOnOpenChangeModal}
       handleCloseModal={handleCloseModal}
     >
-      <div className="relative max-h-full h-full w-[600px] bg-[#111111] rounded-lg px-5 py-5 text-white">
+      <div className="absolute max-h-full h-full w-[600px] bg-[#111111] rounded-lg px-5 py-5 text-white">
         <div className="pb-20 h-full overflow-y-auto no-scrollbar">
           {isLoading ? (
             <>
@@ -46,7 +46,12 @@ const PostModal = ({ id }: Props) => {
             </>
           ) : (
             <div>
-              <Post fullWidth data={data?.data.data as PostType} />
+              <Post
+                fullWidth
+                data={data?.data.data as PostType}
+                muted={false}
+                handleMuted={() => {}}
+              />
               <Comments id={data?.data.data?._id as string} />
             </div>
           )}

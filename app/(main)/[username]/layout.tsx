@@ -14,7 +14,7 @@ export default function ProfileLayout({
       <div className="w-full px-5 pt-8 flex flex-col items-center justify-center">
         <Information params={params} />
         <Content params={params} />
-        <div>{children}</div>
+        <div className="w-full flex justify-center">{children}</div>
       </div>
     </div>
   );

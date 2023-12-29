@@ -87,6 +87,7 @@ const CreatePost = ({ isOpen, closeModal }: Props) => {
         aspect={aspect}
         editedMedia={editedMedia as EditedMedia}
         goBack={handleGoToUpEditFile}
+        handleCloseModal={handleCloseModal}
       />
     ),
   };

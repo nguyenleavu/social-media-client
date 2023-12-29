@@ -5,6 +5,10 @@ import type { Metadata } from "next";
 import { Satisfy } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
+import "@draft-js-plugins/emoji/lib/plugin.css";
+import "@draft-js-plugins/hashtag/lib/plugin.css";
+import "@draft-js-plugins/mention/lib/plugin.css";
+import "@draft-js-plugins/counter/lib/plugin.css";
 
 const satisfy = Satisfy({
   subsets: ["latin"],

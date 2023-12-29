@@ -41,9 +41,9 @@ const Feeds = () => {
         next={fetchNextPage}
         hasMore={hasNextPage}
         loader={<PostLoading />}
+        endMessage={<FollowMore />}
       >
         {contents}
-        {!isError && !hasNextPage && !isPending && <FollowMore />}
       </InfiniteScroll>
     </div>
   );

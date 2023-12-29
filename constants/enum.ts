@@ -25,3 +25,10 @@ export enum PostAudience {
   Everyone,
   PostCircle,
 }
+
+export enum PostRequestType {
+  Post,
+  Repost,
+  Comment,
+  QuotePost,
+}

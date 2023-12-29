@@ -5,7 +5,7 @@ import useScrollToPlayVideo from "@/hooks/useScrolltoPlayVideo";
 import classNames from "classnames";
 import { isEmpty } from "lodash";
 import Image from "next/image";
-import { MutableRefObject, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface Props {
   media: { url: string; type: MediaType };
@@ -54,33 +54,30 @@ const Media = ({ media, handleLike, handleMuted, muted }: Props) => {
           media.type === MediaType.Image ? handleDoubleClick : handleNothing
         }
       >
-        {media.type === MediaType.Image ? (
-          <div>
-            <Image
-              src={media.url}
-              alt={media.url}
-              priority
-              width={2000}
-              height={2000}
-              className="object-contain max-h-[558px]"
-            />
-          </div>
-        ) : (
-          <div className="relative">
-            <video
-              src={media.url}
-              ref={videoRef}
-              className="max-h-[558px]"
-              loop
-              muted={muted}
-              autoPlay
-            ></video>
-            {!isPlay && (
-              <span className="absolute inset-0 flex items-center justify-center">
-                <i className="fa-duotone fa-play text-white text-6xl drop-shadow-lg shadow-lg"></i>
-              </span>
-            )}
-          </div>
+        {media.type === MediaType.Image && (
+          <Image
+            src={media.url}
+            alt={media.url}
+            priority
+            width={2000}
+            height={2000}
+            className="object-contain max-h-[558px]"
+          />
+        )}
+        {media.type === MediaType.Video && (
+          <video
+            src={media.url}
+            ref={videoRef}
+            className="max-h-[558px] h-fit w-fit"
+            loop
+            muted={muted}
+            autoPlay
+          ></video>
+        )}
+        {media.type === MediaType.Video && !isPlay && (
+          <span className="absolute inset-0 flex items-center justify-center">
+            <i className="fa-duotone fa-play text-white text-6xl drop-shadow-lg shadow-lg"></i>
+          </span>
         )}
         <div className="absolute inset-0 flex items-center justify-center bg-transparent">
           <i
@@ -92,16 +89,14 @@ const Media = ({ media, handleLike, handleMuted, muted }: Props) => {
           ></i>
         </div>
       </div>
+
       {media.type === MediaType.Video && (
         <button
           className="bg-grayF14 rounded-full p-2 absolute bottom-5 right-5"
           onClick={handleMuted}
         >
-          {muted ? (
-            <i className="fa-sharp fa-solid fa-volume-xmark"></i>
-          ) : (
-            <i className="fa-sharp fa-solid fa-volume"></i>
-          )}
+          {muted && <i className="fa-sharp fa-solid fa-volume-xmark"></i>}
+          {!muted && <i className="fa-sharp fa-solid fa-volume"></i>}
         </button>
       )}
     </div>
