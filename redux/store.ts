@@ -4,9 +4,6 @@ import profileReducer from "@/redux/profile/profileSlice";
 export const store = configureStore({
   reducer: {
     profile: profileReducer,
-    // posts: postsReducer,
-    // comments: commentsReducer,
-    // users: usersReducer,
   },
 });
 

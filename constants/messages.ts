@@ -1,6 +1,10 @@
 export const MESSAGES = {
   NAME_IS_REQUIRED: "Name is required",
   NAME_MUST_BE_FROM_6_TO_255: "Name length must be from 6 to 255",
+  USERNAME_IS_REQUIRED: "Username is required",
+  USERNAME_MUST_BE_FROM_6_TO_255: "Username length must be from 6 to 255",
+  BIO_IS_REQUIRED: "Bio is required",
+  BIO_MUST_BE_FROM_6_TO_255: "Bio length must be from 6 to 2000",
   EMAIL_IS_REQUIRED: "Email is required",
   EMAIL_IS_INVALID: "Email is invalid",
   PASSWORD_IS_REQUIRED: "Password is required",

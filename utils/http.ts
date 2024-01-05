@@ -1,5 +1,5 @@
 import { API_ENDPOINTS } from "@/constants/api-endpoints";
-import { AuthResponse, RefreshTokenReponse } from "@/types/auth.types";
+import { AuthResponse } from "@/types/auth.types";
 import { ResponseApi } from "@/types/utils.types";
 import axios, {
   AxiosError,
@@ -10,7 +10,6 @@ import axios, {
 import toast from "react-hot-toast";
 import { isAxiosExpiredTokenError, isAxiosUnauthorizedError } from "./error";
 import {
-  clearAccessToken,
   clearLocalStorage,
   getAccessToken,
   getRefreshToken,
@@ -84,12 +83,15 @@ class Http {
             this.refresh_token = data.refresh_token;
             setAccessToken(this.access_token);
             setRefreshToken(this.refresh_token);
-          } else if (url === API_ENDPOINTS.LOG_OUT) {
-            this.access_token = "";
-            this.refresh_token = "";
-            clearAccessToken();
           }
         }
+
+        if (url === API_ENDPOINTS.LOG_OUT) {
+          this.access_token = "";
+          this.refresh_token = "";
+          clearLocalStorage();
+        }
+
         return response;
       },
       (error: AxiosError) => {

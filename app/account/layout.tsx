@@ -15,8 +15,10 @@ export default function AuthLayout({
       <Image
         src="/images/auth/thumbnail.avif"
         alt="thumbnail"
-        fill
-        style={{ objectFit: "cover" }}
+        height={2000}
+        width={2000}
+        className="fixed inset-0 h-screen object-cover"
+        blurDataURL="/images/auth/thumbnail.avif"
       />
       {children}
     </div>

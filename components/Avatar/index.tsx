@@ -20,7 +20,7 @@ interface Props {
 }
 
 const sizes = {
-  small: "h-8 w-8",
+  small: "h-9 w-9",
   medium: "h-11 w-11",
   large: "h-14 w-14",
 };

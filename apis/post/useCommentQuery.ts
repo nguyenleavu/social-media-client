@@ -19,14 +19,15 @@ const getComments = async ({
   return { ...data.data, prevOffset: pageParam };
 };
 
-export const useCommentsInfiniteQuery = (id: string) =>
+export const useCommentsInfiniteQuery = (id: string, key: boolean) =>
   useInfiniteQuery({
-    queryKey: ["comments", id],
-    queryFn: () => getComments({ id }),
+    queryKey: ["comments", id, key],
+    queryFn: ({ pageParam }) => getComments({ id, pageParam }),
     initialPageParam: PAGE_PARAM,
     getNextPageParam: (lastPage) => {
       if (lastPage.page < lastPage.total_page) {
         return lastPage.prevOffset + 1;
       }
+      return undefined;
     },
   });

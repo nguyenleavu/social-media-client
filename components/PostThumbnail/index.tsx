@@ -41,8 +41,8 @@ const PostThumbnail = ({ media, likeCount, commentCount, id }: Props) => {
           <i className="fa-light fa-clapperboard-play text-2xl"></i>
         )}
       </div>
-      <div className="absolute hidden  group-hover:bg-black/40 inset-0 group-hover:flex items-center justify-center gap-2 transition-all duration-700">
-        {likeCount !== 0 && (
+      <div className="absolute hidden  group-hover:bg-black/40 inset-0 group-hover:flex items-center justify-center gap-4 transition-all duration-700">
+        {!!likeCount && likeCount !== 0 && (
           <div className="flex items-center gap-2">
             <span className="text-2xl mb-1">
               <i className="fa-solid fa-heart"></i>

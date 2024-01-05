@@ -5,14 +5,16 @@ import toast from "react-hot-toast";
 
 export const useUploadImageMutation = (
   handleSetEditedMedia: (value: EditedMedia) => void,
-  goNext: () => void
+  goNext?: () => void
 ) =>
   useMutation({
     mutationFn: (data: FormData) => userServices.uploadImage(data),
     onSuccess: ({ data }) => {
       if (data.data) {
         handleSetEditedMedia(data.data[0]);
-        goNext();
+        if (goNext) {
+          goNext();
+        }
       }
     },
     onError: (error) => {

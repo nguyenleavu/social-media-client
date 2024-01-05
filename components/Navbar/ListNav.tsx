@@ -1,4 +1,5 @@
 import { navigates } from "@/constants/navbar";
+import { useAppSelector } from "@/redux/hook";
 import { map } from "lodash";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -15,13 +16,13 @@ const ListNav = ({
   openModal,
 }: ListNavProps) => {
   const pathName = usePathname();
-
+  const user = useAppSelector((state) => state.profile.user);
   return (
     <div className="bg-black">
       <>
         {map(
           navigates({
-            href: "/profile",
+            href: `/${user?.username}`,
             addTabSearch,
             addTabNotification,
             openModal,

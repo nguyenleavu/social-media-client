@@ -3,6 +3,7 @@ import { PostConfig } from "@/types/post.types";
 import {
   CropVideoResponse,
   CroppedAreaPixels,
+  EditForm,
   FollowResponse,
   GetMeResponse,
   MediaResponse,
@@ -61,6 +62,13 @@ export const userServices = {
     await http.request({
       method: "GET",
       url: API_ENDPOINTS.GET_PROFILE + username,
+    }),
+
+  editProfile: async (data: EditForm): Promise<AxiosResponse<GetMeResponse>> =>
+    await http.request({
+      method: "PATCH",
+      url: API_ENDPOINTS.EDIT_PROFILE,
+      data,
     }),
 
   getMe: async (): Promise<AxiosResponse<GetMeResponse>> =>

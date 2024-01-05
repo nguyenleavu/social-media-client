@@ -5,25 +5,36 @@ import { useProfileQuery } from "@/apis/user/useProfileQuery";
 import { useUnfollowMutation } from "@/apis/user/useUnfollowMutation";
 import Button from "@/components/Button";
 import ProfileLoading from "@/components/Loading/ProfileLoading";
-import { useAppDispatch } from "@/redux/hook";
+import { ROUTES } from "@/constants/routes";
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { setProfile } from "@/redux/profile/profileSlice";
 import { Profile } from "@/types/user.types";
 import classNames from "classnames";
 import { isEmpty } from "lodash";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const Information = ({ params }: { params: { username: string } }) => {
   const { data, isLoading } = useProfileQuery(params.username);
   const { mutate: follow } = useFollowMutation();
   const { mutate: unfollow } = useUnfollowMutation();
+  const router = useRouter();
   const dispatch = useAppDispatch();
 
   const [following, setFollowing] = useState<boolean>(false);
 
   const user = data?.data.data as Profile;
+  const me = useAppSelector((state) => state.profile.user);
+
+  const myAccount = user?.username === me?.username;
 
   const handleFollow = () => {
+    if (myAccount) {
+      router.push(ROUTES.EDIT_PROFILE);
+      return;
+    }
+
     if (following) {
       unfollow(user._id);
     } else {
@@ -66,9 +77,13 @@ const Information = ({ params }: { params: { username: string } }) => {
               variant="contained"
               onClick={handleFollow}
             >
-              {following ? "Unfollow" : "Following"}
+              {myAccount
+                ? "Edit Profile"
+                : following
+                ? "Unfollow"
+                : "Following"}
             </Button>
-            <Button variant="contained">Message</Button>
+            {!myAccount && <Button variant="contained">Message</Button>}
           </div>
         </div>
         <ul className="flex items-center gap-10 mb-4">

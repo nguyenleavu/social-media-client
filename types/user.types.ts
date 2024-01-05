@@ -71,6 +71,12 @@ export interface SuggestedType {
   user: User;
 }
 
+export interface EditForm {
+  bio: string;
+  name: string;
+  avatar: string;
+}
+
 export type MediaResponse = ResponseApi<Media[]>;
 export type CropVideoResponse = ResponseApi<{
   url: string;

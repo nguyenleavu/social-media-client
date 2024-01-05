@@ -1,7 +1,7 @@
-import { Profile } from "@/types/user.types";
+import { Profile, User } from "@/types/user.types";
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState: { profile: Profile } = {
+const initialState: { profile: Profile; user: User | null } = {
   profile: {
     _id: "",
     name: "",
@@ -22,6 +22,7 @@ const initialState: { profile: Profile } = {
     following: 0,
     isFollowing: false,
   },
+  user: null,
 };
 
 export const profileSlice = createSlice({
@@ -31,9 +32,12 @@ export const profileSlice = createSlice({
     setProfile: (state, { payload }) => {
       state.profile = payload;
     },
+    setUser: (state, { payload }) => {
+      state.user = payload;
+    },
   },
 });
 
-export const { setProfile } = profileSlice.actions;
+export const { setProfile, setUser } = profileSlice.actions;
 
 export default profileSlice.reducer;

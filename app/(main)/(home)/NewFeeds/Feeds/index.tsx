@@ -17,6 +17,11 @@ const Feeds = () => {
   const [muted, setMuted] = useState<boolean>(true);
 
   const handleMuted = () => {
+    if (muted) {
+      localStorage.setItem("isMuted", "Turn of muted");
+    } else {
+      localStorage.removeItem("isMuted");
+    }
     setMuted((prev) => !prev);
   };
 

@@ -24,4 +24,5 @@ export const API_ENDPOINTS = {
   SUGGESTED: "/users/suggested",
   SEARCH: "/search/users",
   GET_MEDIAS: "/posts/medias",
+  EDIT_PROFILE: "/users/me",
 };

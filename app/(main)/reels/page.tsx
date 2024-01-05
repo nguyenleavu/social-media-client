@@ -18,7 +18,9 @@ const Reels = () => {
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } =
     useMediasInfiniteQuery(MediaType.Video);
 
-  const handleGetVideos = () => fetchNextPage();
+  const handleGetVideos = () => {
+    fetchNextPage();
+  };
 
   const medias = map(data?.pages, (medias) => {
     if (medias.data) {

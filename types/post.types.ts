@@ -1,4 +1,4 @@
-import { MediaType } from "@/constants/enum";
+import { MediaType, PostAudience, PostRequestType } from "@/constants/enum";
 import { Media, User } from "./user.types";
 import { ResponseApi, ResponseApiWithPagination } from "./utils.types";
 
@@ -8,8 +8,8 @@ export interface PostConfig {
 }
 
 export interface PostRequest {
-  type: number;
-  audience: number;
+  type: PostRequestType;
+  audience: PostAudience;
   content: string;
   parent_id: string | null;
   hashtags: string[];

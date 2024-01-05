@@ -24,6 +24,9 @@ const Media = ({ media, handleLike, handleMuted, muted }: Props) => {
   const { isPlay, handleClickVideo } = useScrollToPlayVideo(videoRef);
 
   const handleDoubleClick = () => {
+    if (media.type === MediaType.Video) {
+      return;
+    }
     handleLike();
     setHeart(true);
     setAppear(true);
@@ -41,8 +44,6 @@ const Media = ({ media, handleLike, handleMuted, muted }: Props) => {
     }
   }, [heart]);
 
-  const handleNothing = () => {};
-
   if (isEmpty(media)) return;
 
   return (
@@ -50,17 +51,15 @@ const Media = ({ media, handleLike, handleMuted, muted }: Props) => {
       <div
         className="w-full flex justify-center relative"
         onClick={handleClickVideo}
-        onDoubleClick={
-          media.type === MediaType.Image ? handleDoubleClick : handleNothing
-        }
+        onDoubleClick={handleDoubleClick}
       >
         {media.type === MediaType.Image && (
           <Image
             src={media.url}
             alt={media.url}
-            priority
             width={2000}
             height={2000}
+            blurDataURL={media.url}
             className="object-contain max-h-[558px]"
           />
         )}
@@ -76,7 +75,7 @@ const Media = ({ media, handleLike, handleMuted, muted }: Props) => {
         )}
         {media.type === MediaType.Video && !isPlay && (
           <span className="absolute inset-0 flex items-center justify-center">
-            <i className="fa-duotone fa-play text-white text-6xl drop-shadow-lg shadow-lg"></i>
+            <i className="fa-duotone fa-play text-white text-6xl drop-shadow-lg"></i>
           </span>
         )}
         <div className="absolute inset-0 flex items-center justify-center bg-transparent">

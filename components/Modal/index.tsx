@@ -32,7 +32,7 @@ const Modal = ({
             >
               <i className="fa-solid fa-xmark-large text-white text-lg"></i>
             </button>
-            <div className="flex h-full  items-center justify-center text-center bg-black/70 py-5">
+            <div className="flex h-full items-center justify-center text-center bg-black/70 py-5 w-full">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -42,7 +42,7 @@ const Modal = ({
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="flex items-center justify-center h-full">
+                <Dialog.Panel className="flex items-center justify-center mx-8 md:mx-16  bg-black text-white">
                   {children}
                 </Dialog.Panel>
               </Transition.Child>

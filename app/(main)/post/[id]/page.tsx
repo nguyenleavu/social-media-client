@@ -1,17 +1,23 @@
 "use client";
 
+import Footer from "@/components/Footer";
+import PostDetail from "@/components/PostDetail";
+
 interface PostModalPageProps {
   params: {
     id: string;
   };
 }
 
-const PostDetail = ({ params }: PostModalPageProps) => {
+const PostDetailPage = ({ params }: PostModalPageProps) => {
   return (
-    <div>
-      <p className="text-white">hello</p>
+    <div className="flex items-center min-h-screen flex-col px-16">
+      <div className="py-16">
+        <PostDetail id={params.id} smallSize />
+      </div>
+      <Footer />
     </div>
   );
 };
 
-export default PostDetail;
+export default PostDetailPage;

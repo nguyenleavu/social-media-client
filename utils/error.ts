@@ -28,7 +28,6 @@ export function isAxiosUnauthorizedError<UnauthorizedError>(
 export function isAxiosExpiredTokenError<UnauthorizedError>(
   error: unknown
 ): error is AxiosError<UnauthorizedError> {
-  console.log("error", error);
   return (
     isAxiosUnauthorizedError<ResponseApi<{ name: string; message: string }>>(
       error

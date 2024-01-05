@@ -99,9 +99,6 @@ const CreatePost = ({ isOpen, closeModal }: Props) => {
     if (!isEmpty(croppedMedia?.file)) {
       setStep(ModalStep.CropFile);
     }
-    // if (!isEmpty(editedMedia?.url)) {
-    //   setStep(ModalStep.EditFile);
-    // }
   }, [media, croppedMedia, editedMedia]);
 
   return (
@@ -112,12 +109,12 @@ const CreatePost = ({ isOpen, closeModal }: Props) => {
     >
       <div
         className={classNames(
-          `h-[812px] transform overflow-hidden rounded-2xl bg-gray26  text-left align-middle shadow-xl duration-500 transition-all`,
+          `h-[66vw] max-h-[812px] w-[90vw]  transform overflow-hidden rounded-2xl bg-gray26  text-left align-middle shadow-xl duration-500 transition-all`,
           (step === ModalStep.EditFile &&
             croppedMedia?.type === MediaType.Image) ||
             step === ModalStep.UploadPost
-            ? "w-maxPost"
-            : "w-post"
+            ? "max-w-[1152px] "
+            : "max-w-[768px]"
         )}
       >
         {modalStep[step]}

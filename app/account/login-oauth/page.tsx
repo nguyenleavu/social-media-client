@@ -1,7 +1,8 @@
 "use client";
 
 import { ROUTES } from "@/constants/routes";
-import { redirect, useSearchParams } from "next/navigation";
+import { setAccessToken, setRefreshToken } from "@/utils/token";
+import { redirect, useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 const LoginOauth = () => {
@@ -11,14 +12,12 @@ const LoginOauth = () => {
 
   useEffect(() => {
     if (access_token && refresh_token) {
-      localStorage.setItem("access_token", access_token);
-      localStorage.setItem("refresh_token", refresh_token);
+      setAccessToken(access_token);
+      setRefreshToken(refresh_token);
       redirect(ROUTES.HOME);
     }
   }, [access_token, refresh_token]);
-  return (
-    <section className="flex items-center justify-center h-screen flex-col"></section>
-  );
+  return null;
 };
 
 export default LoginOauth;

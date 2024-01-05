@@ -7,21 +7,25 @@ import { isEmpty, map } from "lodash";
 import Footer from "./Footer";
 import SuggestTitle from "./SuggestTitle";
 import UserBox from "@/components/UserBox";
+import { useAppSelector } from "@/redux/hook";
 
 const LIMIT = 5;
 
 const Suggested = () => {
   const { data } = useSuggestedQuery(LIMIT);
-
   const users = map(data?.data, (item) => item);
+  const user = useAppSelector((state) => state.profile.user);
 
   return (
     <div className="w-[384px] hidden xl:block pl-16 mt-7">
-      <UserBox
-        name="nguyenleavu"
-        subTitle="Followed by justinbieber"
-        src="https://social-media-ap-southeast-1.s3.ap-southeast-1.amazonaws.com/images/24b979af04028de57252c1703.jpg"
-      />
+      {user && (
+        <UserBox
+          name={user?.username}
+          subTitle={user?.name}
+          src={user?.avatar}
+        />
+      )}
+      {!user && <SuggestedLoading />}
       <div className="mt-6 mb-2">
         <SuggestTitle />
         <div className="py-2">

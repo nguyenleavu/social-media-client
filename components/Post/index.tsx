@@ -70,7 +70,10 @@ const Post = ({
         handleMuted={handleMuted}
       />
       <Action data={data} liked={liked} onToggleLike={onToggleLike} />
-      <Content content={data.content} className="pb-1 text-sm text-left" />
+      <Content
+        content={data.content}
+        className="pb-1 text-sm text-left relative"
+      />
       {viewAllComments && (
         <ViewAllComments commentCount={data.comment_count} id={data._id} />
       )}

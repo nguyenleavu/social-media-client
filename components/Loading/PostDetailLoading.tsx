@@ -1,14 +1,20 @@
-const PostDetailLoading = () => {
+import classNames from "classnames";
+
+const PostDetailLoading = ({ smallSize }: { smallSize: boolean }) => {
   return (
-    <div className="w-full mb-8 z-10">
-      <div className="animate-pulse flex space-x-2 items-center">
-        <div className="rounded-full bg-gray26 h-11 w-11"></div>
-        <div className="flex-1 space-y-2 py-1">
-          <div className="h-3 bg-gray26 rounded w-32"></div>
-          <div className="h-3 w-16 bg-gray26 rounded"></div>
+    <div
+      className={classNames(
+        smallSize
+          ? "h-[500px] md:h-[45vw] max-h-[65vh] max-w-[1100px]"
+          : "h-[800px] md:h-[60vw] max-h-[95vh] max-w-[1300px]"
+      )}
+    >
+      <div className="flex items-center h-full w-full">
+        <div className="animate-pulse bg-grayA8 hidden md:flex items-center justify-center h-full flex-1">
+          <div className="w-[40vw] h-full"></div>
         </div>
+        <div className="animate-pulse w-[450px] md:w-[40vw] lg:w-[30vw] max-w-[450px] h-full bg-gray26 overflow-hidden flex flex-col justify-between"></div>
       </div>
-      <div className="animate-pulse flex space-x-4 items-center h-[400px]  w-full  bg-gray26 mt-4 mb-6"></div>
     </div>
   );
 };

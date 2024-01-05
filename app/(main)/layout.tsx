@@ -1,7 +1,10 @@
+"use client";
+
+import ProtectRoute from "@/components/AuthProvider";
 import Navbar from "@/components/Navbar";
 import { ReactNode } from "react";
 
-export default function MainLayout({
+function MainLayout({
   children,
   modal,
 }: {
@@ -9,10 +12,13 @@ export default function MainLayout({
   modal: ReactNode;
 }) {
   return (
-    <div className="flex justify-center text-white w-full">
-      <Navbar />
-      {modal}
-      <div className="pl-mbNav lg:pl-nav w-full">{children}</div>
-    </div>
+    <ProtectRoute>
+      <div className="flex justify-center text-white w-full">
+        <Navbar />
+        {modal}
+        <div className="pl-mbNav lg:pl-nav w-full">{children}</div>
+      </div>
+    </ProtectRoute>
   );
 }
+export default MainLayout;

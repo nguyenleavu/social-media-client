@@ -15,6 +15,7 @@ const Saved = () => {
         <div key={post._id}>
           <PostThumbnail
             id={post._id}
+            likeCount={post.likes}
             commentCount={post.comment_count}
             media={post.medias[0]}
           />

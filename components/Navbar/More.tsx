@@ -1,5 +1,6 @@
 import { useLogOutMutation } from "@/apis/auth/useLogOutMutation";
 import { Menu, Switch, Transition } from "@headlessui/react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -57,6 +58,14 @@ const More = () => {
             pointer-events-none inline-block h-[16px] w-[16px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
               />
             </Switch>
+          </Menu.Item>
+          <Menu.Item
+            as={Link}
+            href="/settings/edit"
+            className="p-3 flex w-full items-center rounded-lg hover:bg-grayF14 transition-all"
+          >
+            <i className="fa-sharp fa-light fa-gear"></i>
+            <span className="pl-3">Edit profile</span>
           </Menu.Item>
           <Menu.Item
             as="button"

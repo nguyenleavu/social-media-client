@@ -37,18 +37,18 @@ export const navigates = ({
     title: "Reels",
     href: ROUTES.REELS,
   },
-  {
-    id: 5,
-    icon: "fa-light fa-message",
-    title: "Messages",
-    href: ROUTES.MESSAGE,
-  },
-  {
-    id: 6,
-    icon: "fa-light fa-heart",
-    title: "Notifications",
-    onClick: () => addTabNotification(),
-  },
+  // {
+  //   id: 5,
+  //   icon: "fa-light fa-message",
+  //   title: "Messages",
+  //   href: ROUTES.MESSAGE,
+  // },
+  // {
+  //   id: 6,
+  //   icon: "fa-light fa-heart",
+  //   title: "Notifications",
+  //   onClick: () => addTabNotification(),
+  // },
   {
     id: 7,
     icon: "fa-light fa-square-plus",

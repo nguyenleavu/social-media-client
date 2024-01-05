@@ -7,14 +7,14 @@ interface Props {
 
 const UploadFile = ({ handleFileChange }: Props) => {
   return (
-    <div className="h-full">
+    <div className="h-full flex flex-col">
       <Dialog.Title
         as="h3"
         className="h-11 text-white text-sm flex items-center justify-center border-b border-grayF14 font-semibold"
       >
         Create new post
       </Dialog.Title>
-      <div className="mt-2 p-6 flex items-center justify-center h-[724px] flex-col">
+      <div className="p-6 flex items-center justify-center h-full flex-col flex-1">
         <span className="text-sm text-gray-500">
           <i className="fa-thin fa-photo-film text-6xl text-white"></i>
         </span>

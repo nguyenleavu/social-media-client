@@ -5,7 +5,7 @@ import { Dialog } from "@headlessui/react";
 import classNames from "classnames";
 import Image from "next/image";
 import TextEditor from "./TextEditor";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { EditorState, convertToRaw } from "draft-js";
 import { extractHashtagsWithIndices } from "@draft-js-plugins/hashtag";
 import { map } from "lodash";
@@ -30,7 +30,7 @@ const UploadPost = ({
   );
   const [mentions, setMentions] = useState<string[]>([]);
 
-  const { mutate: createPost, isPending } = useCreatePostMutation();
+  const { mutate: createPost, isPending, isSuccess } = useCreatePostMutation();
 
   const handleChange = (_editorState: EditorState) => {
     setEditorState(_editorState);
@@ -57,10 +57,12 @@ const UploadPost = ({
       mentions,
       parent_id: null,
     };
-
     await createPost(postRequest);
-    handleCloseModal();
   };
+
+  useEffect(() => {
+    if (isSuccess) handleCloseModal();
+  }, [handleCloseModal, isSuccess]);
 
   return (
     <div className="h-full flex flex-col">

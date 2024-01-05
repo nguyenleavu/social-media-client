@@ -91,7 +91,7 @@ const EditFile = ({
           Next
         </button>
       </Dialog.Title>
-      <div className="flex-1 flex justify-between w-full relative">
+      <div className="flex justify-between h-full w-full relative flex-1">
         {loading && (
           <div className="absolute inset-0 flex items-center justify-center bg-black/60 z-10">
             <i className="animate-spin fa-solid fa-circle-notch text-white"></i>
@@ -112,7 +112,7 @@ const EditFile = ({
                     `object-contain ${filterClass}`,
                     aspect === 1 && "h-full w-full",
                     aspect === 16 / 9 && "w-full h-fit",
-                    aspect === 9 / 16 && "h-post w-fit"
+                    aspect === 9 / 16 && "h-full w-fit"
                   )}
                   src={media}
                   alt="edit-image"

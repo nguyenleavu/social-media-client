@@ -1,5 +1,5 @@
 import { postServices } from "@/services/post.services";
-import { useInfiniteQuery } from "@tanstack/react-query";
+import { keepPreviousData, useInfiniteQuery } from "@tanstack/react-query";
 
 const PAGE_PARAM = 1;
 const LIMIT = 10;

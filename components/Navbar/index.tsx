@@ -7,7 +7,7 @@ import ListNav from "./ListNav";
 import LogoNav from "./LogoNav";
 import More from "./More";
 import TabWrapper from "./TabWrapper";
-import CreatePost from "./CreatePost";
+import CreatePost from "../CreatePost";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);

@@ -32,5 +32,6 @@ export const useMediasInfiniteQuery = (type: MediaType) =>
       if (lastPage.page < lastPage.total_page) {
         return lastPage.prevOffset + 1;
       }
+      return undefined;
     },
   });

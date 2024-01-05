@@ -1,4 +1,3 @@
-import { useCropVideoMutation } from "@/apis/user/useCropVideoMutation";
 import { MediaType } from "@/constants/enum";
 import { radios } from "@/constants/image";
 import useOnClickOutside from "@/hooks/useOutsideClick";
@@ -80,6 +79,7 @@ const CropFile = ({
           file: file,
           type: MediaType.Video,
         });
+        console.log("file", file);
         setLoading(false);
       }
       goNext();
@@ -117,7 +117,7 @@ const CropFile = ({
         </button>
       </Dialog.Title>
       <div className="flex items-center h-full flex-col">
-        <div className="bg-[#121212] relative h-post w-full flex justify-center">
+        <div className="bg-[#121212] relative h-full w-full flex justify-center">
           {loading && (
             <div className="absolute inset-0 flex items-center justify-center bg-black/60 z-10">
               <i className="animate-spin fa-solid fa-circle-notch text-white"></i>

@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import CreatePost from "@/components/Navbar/CreatePost";
+import CreatePost from "@/components/CreatePost";
 import { postHeader } from "@/constants/content";
 import { map } from "lodash";
 
