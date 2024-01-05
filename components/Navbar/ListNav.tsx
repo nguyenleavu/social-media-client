@@ -18,7 +18,7 @@ const ListNav = ({
   const pathName = usePathname();
   const user = useAppSelector((state) => state.profile.user);
   return (
-    <div className="bg-black">
+    <div className="bg-black flex items-center sm:block justify-between w-full">
       <>
         {map(
           navigates({
@@ -34,7 +34,7 @@ const ListNav = ({
               <Link
                 key={id}
                 href={href}
-                className={`p-3 flex w-full items-center my-2 rounded-lg hover:bg-grayActive transition-all ${
+                className={`p-3 flex w-full items-center justify-center sm:justify-start my-2 rounded-lg hover:bg-grayActive transition-all ${
                   isActive && "bg-grayActive"
                 }`}
               >
@@ -52,7 +52,7 @@ const ListNav = ({
                 <button
                   key={id}
                   onClick={onClick}
-                  className={`p-3 flex w-full items-center my-2 rounded-lg hover:bg-grayActive transition-all ${
+                  className={`p-3 flex w-full items-center justify-center sm:justify-start my-2 rounded-lg hover:bg-grayActive transition-all ${
                     isActive && "bg-[#1a1a1a]"
                   }`}
                 >

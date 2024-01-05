@@ -39,9 +39,9 @@ const Navbar = () => {
     setIsOpen(true);
   };
   return (
-    <nav className="fixed left-0 top-0 bottom-0 bg-black border-r border-gray26 z-10">
-      <div className="relative px-3 py-5 w-mbNav lg:w-nav transition-all text-white flex flex-col justify-between h-full z-30 bg-black">
-        <div>
+    <nav className="fixed left-0 sm:top-0 bottom-0 bg-black border-r border-gray26 z-10 w-full sm:w-fit ">
+      <div className="relative px-3 sm:py-5 w-full sm:w-mbNav lg:w-nav transition-all text-white flex flex-col justify-between h-full z-30 bg-black">
+        <div className="w-full flex items-center justify-between sm:block">
           <LogoNav />
           <ListNav
             addTabSearch={addTabSearch}

@@ -15,7 +15,7 @@ const More = () => {
 
   return (
     <Menu as="div">
-      <Menu.Button className="relative p-3 flex w-full items-center my-2 rounded-lg hover:bg-grayActive transition-all">
+      <Menu.Button className="hidden sm:flex relative p-3  w-full items-center my-2 rounded-lg hover:bg-grayActive transition-all">
         <i className="text-2xl fa-regular fa-bars"></i>
         <span className="pl-4 hidden lg:block text-[15px] animate-fade-left">
           More

@@ -10,17 +10,5 @@ export default function AuthLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <div className="relative">
-      <Image
-        src="/images/auth/thumbnail.avif"
-        alt="thumbnail"
-        height={2000}
-        width={2000}
-        className="fixed inset-0 h-screen object-cover"
-        blurDataURL="/images/auth/thumbnail.avif"
-      />
-      {children}
-    </div>
-  );
+  return <div className="relative bg-blue-500">{children}</div>;
 }

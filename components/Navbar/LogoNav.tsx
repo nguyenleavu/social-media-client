@@ -5,7 +5,7 @@ const LogoNav = () => {
   return (
     <Link
       href={ROUTES.HOME}
-      className="flex justify-between items-center h-12 mt-2 mb-12 px-3 transition-all "
+      className="hidden sm:flex justify-between items-center h-12 mt-2 mb-12 px-3 transition-all "
     >
       <h1 className="transition-all duration-500 text-3xl hidden lg:block animate-fade-right">
         Social Media

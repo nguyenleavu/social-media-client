@@ -13,7 +13,4 @@ export const useEditProfileMutation = (dispatch: Dispatch) =>
       toast.success(data.message);
       dispatch(setUser(data.data));
     },
-    onError: (error) => {
-      console.log("error", error);
-    },
   });

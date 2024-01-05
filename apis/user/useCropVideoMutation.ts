@@ -18,7 +18,6 @@ export const useCropVideoMutation = () =>
       }
     },
     onError: (error) => {
-      console.log("error", error);
       toast.error(error.message);
     },
   });

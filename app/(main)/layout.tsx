@@ -1,6 +1,7 @@
 "use client";
 
 import ProtectRoute from "@/components/AuthProvider";
+import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
 import { ReactNode } from "react";
 
@@ -14,9 +15,10 @@ function MainLayout({
   return (
     <ProtectRoute>
       <div className="flex justify-center text-white w-full">
+        <Header />
         <Navbar />
         {modal}
-        <div className="pl-mbNav lg:pl-nav w-full">{children}</div>
+        <div className="sm:pl-mbNav lg:pl-nav w-full">{children}</div>
       </div>
     </ProtectRoute>
   );

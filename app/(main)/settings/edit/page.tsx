@@ -70,7 +70,6 @@ const EditProfile = () => {
 
   const dispatch = useAppDispatch();
   const handleSetEditedMedia = (value: EditedMedia) => {
-    console.log("value", value);
     setMedia(value.url);
   };
 

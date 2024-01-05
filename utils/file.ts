@@ -128,7 +128,6 @@ export const getImagesByVideo = async (file: Blob, duration?: number) => {
     wasmURL: await toBlobURL(`${baseURL}/ffmpeg-core.wasm`, "application/wasm"),
   });
   await ffmpeg.writeFile("in.mp4", await fetchFile(file));
-  console.log(1);
   await ffmpeg.exec([
     "-i",
     "in.mp4",
@@ -140,9 +139,7 @@ export const getImagesByVideo = async (file: Blob, duration?: number) => {
     "image2",
     "image%03d.jpg",
   ]);
-  console.log(2);
   const data = await ffmpeg.readFile("image%03d.jpg");
-  console.log("data", data);
   return data;
 };
 

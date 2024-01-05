@@ -79,7 +79,6 @@ const CropFile = ({
           file: file,
           type: MediaType.Video,
         });
-        console.log("file", file);
         setLoading(false);
       }
       goNext();
