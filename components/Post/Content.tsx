@@ -3,6 +3,7 @@
 import usePlugin from "@/hooks/usePlugin";
 import Editor from "@draft-js-plugins/editor";
 import { EditorState, convertFromRaw } from "draft-js";
+import { isEmpty } from "lodash";
 import { useEffect, useRef, useState } from "react";
 
 interface Props {
@@ -18,6 +19,11 @@ const Content = ({ content, className }: Props) => {
   const divRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (isEmpty(content)) {
+      setEditorState(EditorState.createEmpty());
+      return;
+    }
+
     setEditorState(
       EditorState.createWithContent(convertFromRaw(JSON.parse(content)))
     );

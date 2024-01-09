@@ -1,13 +1,17 @@
-import { ROUTES } from "@/constants/routes";
+import { MOBILE_ROUTES, ROUTES } from "@/constants/routes";
 import { isEmpty } from "lodash";
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
-import _ from "lodash";
+import { NextRequest, NextResponse, userAgent } from "next/server";
 
 export default function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
 
   let isLogin = !isEmpty(request.cookies.get("access_token"));
+
+  const { device } = userAgent(request);
+
+  if (device.type === "mobile") {
+    return NextResponse.redirect(new URL(MOBILE_ROUTES.HOME, request.url));
+  }
 
   if (!isLogin) {
     return NextResponse.rewrite(new URL(ROUTES.SIGN_IN, request.url));

@@ -5,6 +5,7 @@ import PostLoading from "@/components/Loading/PostLoading";
 import Post from "@/components/Post";
 import CheckEmail from "@/components/Post/CheckEmail";
 import FollowMore from "@/components/Post/FollowMore";
+import { PostAudience, PostRequestType } from "@/constants/enum";
 import { PostType } from "@/types/post.types";
 import { map } from "lodash";
 import { useState } from "react";

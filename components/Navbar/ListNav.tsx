@@ -18,7 +18,7 @@ const ListNav = ({
   const pathName = usePathname();
   const user = useAppSelector((state) => state.profile.user);
   return (
-    <div className="bg-black flex items-center sm:block justify-between w-full">
+    <div className="bg-black flex items-center sm:block justify-between w-full gap-2">
       <>
         {map(
           navigates({

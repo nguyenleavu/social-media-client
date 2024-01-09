@@ -76,7 +76,9 @@ const CreateComment = ({ id, handleChange }: Props) => {
     };
     await createPost(postRequest);
     setEditorState(EditorState.createEmpty());
-    handleChange();
+    setTimeout(() => {
+      handleChange();
+    }, 500);
   };
 
   return (

@@ -42,7 +42,7 @@ const Modal = ({
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="flex items-center justify-center mx-8 md:mx-16  bg-black text-white">
+                <Dialog.Panel className="flex items-center justify-center mx-8 md:mx-16 bg-black text-white bg-transparent">
                   {children}
                 </Dialog.Panel>
               </Transition.Child>

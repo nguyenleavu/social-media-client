@@ -57,7 +57,7 @@ const TextEditor = ({ value, onChange, setError }: EditorProps) => {
       </div>
       <div className="flex items-center absolute bottom-2 right-2 text-grayA8 text-sm">
         <CharCounter />
-        /2000
+        /1500
       </div>
     </div>
   );

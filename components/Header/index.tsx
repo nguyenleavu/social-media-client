@@ -1,10 +1,17 @@
 import { ROUTES } from "@/constants/routes";
+import classNames from "classnames";
 import Link from "next/link";
-import React from "react";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
+  const pathname = usePathname();
   return (
-    <div className="fixed top-0 left-0 right-0 sm:hidden h-12 bg-black w-full z-50">
+    <div
+      className={classNames(
+        "fixed top-0 left-0 right-0 sm:hidden h-12 bg-black w-full z-50",
+        pathname === ROUTES.REELS && "hidden"
+      )}
+    >
       <Link
         href={ROUTES.HOME}
         className="flex justify-between items-center h-12 px-3 transition-all "

@@ -35,9 +35,9 @@ const Reel = ({
       lastVideoIndex={lastVideoIndex}
       handleGetVideos={handleGetVideos}
     >
-      <div className="sm:w-[550px] mt-4 snap-center cursor-pointer relative flex h-full">
+      <div className="sm:w-[550px] w-full mt-4 snap-center cursor-pointer relative flex h-full">
         <div
-          className="relative w-[480px] h-[850px] flex items-center justify-center"
+          className="relative w-screen sm:w-[480px] h-[850px] flex items-center justify-center"
           onClick={handleClickVideo}
         >
           <video

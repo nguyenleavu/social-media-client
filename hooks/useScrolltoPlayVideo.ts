@@ -5,6 +5,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import useInViewport from "./useInViewport";
 
 const THRESHOLD = 0.8;
 

@@ -3,6 +3,8 @@ import { useLikeMutation } from "@/apis/post/useLikeMutation";
 import { useUnlikeMutation } from "@/apis/post/useUnlikeMutation";
 import { PostType } from "@/types/post.types";
 import { ReactNode, useEffect, useState } from "react";
+import Modal from "../Modal";
+import Comments from "./Comments";
 
 interface Props {
   data: PostType;
@@ -32,6 +34,7 @@ const Action = ({ data }: Props) => {
   const [liked, setLiked] = useState<boolean>(data.isLiked);
   const [likes, setLikes] = useState<number>(data.likes);
   const [bookmark, setBookmark] = useState<boolean>(data.isBookmark);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const { mutate: likePost } = useLikeMutation();
   const { mutate: unlikePost } = useUnlikeMutation();
@@ -56,6 +59,14 @@ const Action = ({ data }: Props) => {
     setBookmark((prev) => !prev);
   };
 
+  const handleCloseModal = () => {
+    setIsOpen(false);
+  };
+
+  const handleOpenModal = () => {
+    setIsOpen(true);
+  };
+
   useEffect(() => {
     if (!data.isLiked) {
       if (liked) {
@@ -77,26 +88,31 @@ const Action = ({ data }: Props) => {
     }
   }, [liked, data.likes, data.isLiked]);
   return (
-    <div className="h-full ml-3 flex-1 flex flex-col justify-end pb-4 gap-5">
-      <ButtonAction onClick={onToggleLike} count={likes}>
-        {liked && (
-          <i className="fa-solid fa-heart text-red-500 text-2xl animate-jump"></i>
-        )}
-        {!liked && <i className="fa-light fa-heart text-2xl"></i>}
-      </ButtonAction>
-      <ButtonAction onClick={() => {}} count={data.comment_count}>
-        <i className="fa-light fa-message-lines text-2xl"></i>
-      </ButtonAction>
-      <ButtonAction onClick={() => {}}>
-        <i className="fa-light fa-paper-plane text-2xl"></i>
-      </ButtonAction>
-      <ButtonAction onClick={onToggleBookmark}>
-        {bookmark && (
-          <i className="fa-solid fa-bookmark text-yellow-500 text-2xl animate-jump"></i>
-        )}
-        {!bookmark && <i className="fa-light fa-bookmark text-2xl"></i>}
-      </ButtonAction>
-    </div>
+    <>
+      <Modal isOpen={isOpen} handleCloseModal={handleCloseModal}>
+        <Comments id={data._id} />
+      </Modal>
+      <div className="absolute right-2 bottom-32 sm:static h-full ml-3 flex-1 flex flex-col justify-end pb-4 gap-5">
+        <ButtonAction onClick={onToggleLike} count={likes}>
+          {liked && (
+            <i className="fa-solid fa-heart text-red-500 text-2xl animate-jump"></i>
+          )}
+          {!liked && <i className="fa-light fa-heart text-2xl"></i>}
+        </ButtonAction>
+        <ButtonAction onClick={handleOpenModal} count={data.comment_count}>
+          <i className="fa-light fa-message-lines text-2xl"></i>
+        </ButtonAction>
+        <ButtonAction onClick={() => {}}>
+          <i className="fa-light fa-paper-plane text-2xl"></i>
+        </ButtonAction>
+        <ButtonAction onClick={onToggleBookmark}>
+          {bookmark && (
+            <i className="fa-solid fa-bookmark text-yellow-500 text-2xl animate-jump"></i>
+          )}
+          {!bookmark && <i className="fa-light fa-bookmark text-2xl"></i>}
+        </ButtonAction>
+      </div>
+    </>
   );
 };
 

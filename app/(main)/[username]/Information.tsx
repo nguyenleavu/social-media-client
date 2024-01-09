@@ -5,6 +5,7 @@ import { useProfileQuery } from "@/apis/user/useProfileQuery";
 import { useUnfollowMutation } from "@/apis/user/useUnfollowMutation";
 import Button from "@/components/Button";
 import ProfileLoading from "@/components/Loading/ProfileLoading";
+import Content from "@/components/Post/Content";
 import { ROUTES } from "@/constants/routes";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { setProfile } from "@/redux/profile/profileSlice";
@@ -102,7 +103,10 @@ const Information = ({ params }: { params: { username: string } }) => {
         <div className="mb-4">
           <span className="font-semibold text-sm">{user.name}</span>
         </div>
-        <div className="text-sm">{user.bio}</div>
+        <Content
+          content={user.bio}
+          className="max-h-[100px] w-full overflow-y-auto no-scrollbar"
+        />
       </div>
     </header>
   );
